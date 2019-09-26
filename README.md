@@ -1,4 +1,4 @@
-# DATA-REPRESENTATION - Semester 4
+# Data-Representation - Semester 4
 
 **Week 1**
 
