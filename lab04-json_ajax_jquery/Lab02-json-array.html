@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <title>
+            Lab 4: JSON and AJAX (with jQuery)
+        </title>
+    </head>
+    <body>
+        <button onclick="displayJSON()">go</button>
+
+    </body>
+    <script>
+    function displayJSON(){
+        var obj = JSON.parse('{"employees": [{"firstName": "John", "lastName": "Doe"},{ "firstName": "Anna","lastName": "Smith"},{"firstName": "Peter","lastName": "Jones"}]}')
+        for (employee of obj.employees){
+            console.log(employee.firstName)
+        }
+    }
+</script>
+
+</html>
