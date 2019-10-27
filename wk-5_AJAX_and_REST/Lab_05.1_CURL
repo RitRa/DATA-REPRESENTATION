@@ -1,0 +1,28 @@
+1. curl google.com
+# You	should	get	a	301	error	saying	that	the	page	has	moved
+
+2. curl -i google.com
+
+3. Look	at	the	website	http://dummy.restapiexample.com/
+
+a. What	the	curl command be	to	view all the employees?
+curl -i http://dummy.restapiexample.com/api/v1/employees
+
+b. What	would the curl command be to view employee	2202?
+didn't work for me
+
+this worked
+curl -i http://dummy.restapiexample.com/api/v1/employee/6644
+{"id":"6644","employee_name":"Test user 533","employee_salary":"35000","employee_age":"30","profile_image":""}
+
+4. For the same	web	site how would you use curl	to delete an employee
+
+curl -X DELETE http://dummy.restapiexample.com/api/v1/delete/1000
+{"success":{"text":"successfully! deleted Records"}}
+
+5. For the same	website	how	would yo use curl to create	an	employee, you may need to make the
+employe	name unique
+curl -i -d '{"employee_name":"test","salary":"123","age":"23","id”:"2202"}' -H 'ContentType: application/json' -X POST http://dummy.restapiexample.com/api/v1/create
+
+6.For the same website how would you use curl to update	an employee
+curl -X PUT -H "Content-type:application/json” -d '{”employee_salary”:”55000”}' http://dummy.restapiexam ple.com/api/v1/update/6644
