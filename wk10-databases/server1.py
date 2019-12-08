@@ -40,7 +40,7 @@ def findById(id):
 
 # curl -X POST  "http://127.0.0.1:5000/books"
 
-## curl -i -H "Content-Type:application/json" -X POST -d '{"Title": "Harry Potter4444", "Author": "JK", "Price": 1000}' http://127.0.0.1:5000/books
+## curl -i -H "Content-Type:application/json" -X POST -d '{"Title": "Harry Potter444445555", "Author": "JK", "Price": 1000}' http://127.0.0.1:5000/books
 @app.route('/books',methods=['POST'])
 def create():
     if not request.json:
@@ -60,13 +60,14 @@ def create():
 #curl -X PUT "http://127.0.0.1:5000/books/124"
 
 # curl -i -H "Content-Type:application/json" -X PUT -d  '{ "Title":"me" }' http://127.0.0.1:5000/books/1
-    
-# curl -i -H "Content-Type:application/json" -X PUT -d  '{"title":"ritt","author":"Ruta", "price":34}' http://127.0.0.1:5000/books/1
+
+
+# not working video  finish server to DB 8mins   
+# curl -i -H "Content-Type:application/json" -X PUT -d  '{"title":"ritt","author":"Ruta", "price":34}' http://127.0.0.1:5000/books/8
 @app.route('/books/<int:id>',methods=['PUT'])
 def update(id):
  
     foundBook = bookDAO.findByID(id) 
-
     if not foundBook:
         abort(404)
 
@@ -98,13 +99,9 @@ def update(id):
 
 @app.route('/books/<int:id>',methods=['DELETE'])
 def delete(id):
-    foundBooks = list(filter(lambda t:t['id']==id, books))
-    if (len(foundBooks) == 0):
-        abort(404)
-    books.remove(foundBooks[0])
+    bookDAO.delete(id) 
     return jsonify({"done":True})
 
-    return "in delete for id" +str(id)
 
 if __name__ == '__main__':
     app.run(debug=True)    

@@ -17,6 +17,11 @@ show tables;
 
 select * from book;
 
+update book set title= "AAA", author="AAA", price=222 where id = 1;
+
+INSERT into book (title, author, price) values ("harry potter", "jk", 12);
+INSERT into book (title, author, price) values ("harry potter 2", "jk", 12);
+
 select * from student;
 
 insert into student (firstname, age) values ("Mary", 21);

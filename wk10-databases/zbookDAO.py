@@ -41,9 +41,11 @@ class BookDAO:
 
     def update(self, values):
         cursor = self.db.cursor()
+        print("HI, UPDATED")
         sql="update book set title= %s, author=%s, price=%s where id = %s"
         cursor.execute(sql, values)
         self.db.commit()
+        print("UPDATED")
 
     def delete(self, id):
         cursor = self.db.cursor()
